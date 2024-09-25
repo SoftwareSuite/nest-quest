@@ -6,6 +6,14 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      custom: ["Arima", "cursive"]
+    }
   },
   plugins: [],
 }
+
+// #d6e6ff heafer collor
+
+// #fefefe bg color
+  
