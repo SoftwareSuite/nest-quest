@@ -160,11 +160,11 @@ export default function CreateListing() {
   };
   return (
     <main className='p-3 max-w-4xl mx-auto'>
-      <h1 className='text-3xl font-semibold text-center my-7'>
+      <h1 className='text-3xl font-semibold text-center my-7 font-custom'>
         Update a Listing
       </h1>
       <form onSubmit={handleSubmit} className='flex flex-col sm:flex-row gap-4'>
-        <div className='flex flex-col gap-4 flex-1'>
+        <div className='flex flex-col gap-4 flex-1 font-custom'>
           <input
             type='text'
             placeholder='Name'
@@ -285,8 +285,10 @@ export default function CreateListing() {
                 value={formData.regularPrice}
               />
               <div className='flex flex-col items-center'>
-                <p>Regular price</p>
-                <span className='text-xs'>($ / month)</span>
+                <p className='font-custom'>Regular price</p>
+                {formData.type === 'rent' && (
+                    <span className='text-xs'>($ / month)</span>
+                  )}
               </div>
             </div>
             {formData.offer && (
@@ -302,8 +304,10 @@ export default function CreateListing() {
                   value={formData.discountPrice}
                 />
                 <div className='flex flex-col items-center'>
-                  <p>Discounted price</p>
-                  <span className='text-xs'>($ / month)</span>
+                  <p className='font-custom'>Discounted price</p>
+                  {formData.type === 'rent' && (
+                    <span className='text-xs'>($ / month)</span>
+                  )}
                 </div>
               </div>
             )}
@@ -312,7 +316,7 @@ export default function CreateListing() {
         <div className='flex flex-col flex-1 gap-4'>
           <p className='font-semibold'>
             Images:
-            <span className='font-normal text-gray-600 ml-2'>
+            <span className='font-normal text-gray-600 ml-2 font-custom'>
               The first image will be the cover (max 6)
             </span>
           </p>
@@ -329,7 +333,7 @@ export default function CreateListing() {
               type='button'
               disabled={uploading}
               onClick={handleImageSubmit}
-              className='p-3 text-green-700 border border-green-700 rounded uppercase hover:shadow-lg disabled:opacity-80'
+              className=' font-custom p-3 text-green-700 border border-green-700 rounded uppercase hover:shadow-lg disabled:opacity-80'
             >
               {uploading ? 'Uploading...' : 'Upload'}
             </button>
@@ -351,7 +355,7 @@ export default function CreateListing() {
                 <button
                   type='button'
                   onClick={() => handleRemoveImage(index)}
-                  className='p-3 text-red-700 rounded-lg uppercase hover:opacity-75'
+                  className='p-3 text-red-700 rounded-lg uppercase hover:opacity-75 font-custom'
                 >
                   Delete
                 </button>
@@ -359,7 +363,7 @@ export default function CreateListing() {
             ))}
           <button
             disabled={loading || uploading}
-            className='p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
+            className='font-custom p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
           >
             {loading ? 'Creating...' : 'Update listing'}
           </button>
