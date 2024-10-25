@@ -10,7 +10,10 @@ export default {
       custom: ["Arima", "cursive"]
     }
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+    // ...
+  ],
 }
 
 // #d6e6ff heafer collor
